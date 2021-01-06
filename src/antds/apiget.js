@@ -1,42 +1,64 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import { Card, Col, Row } from "antd";
+import "./Antds.css";
 
 function Getapi() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
 
-    // Note: the empty deps array [] means
-    // this useEffect will run once
-    // similar to componentDidMount()
-    useEffect(() => {
-        fetch("https://covid19.th-stat.com/api/open/today")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setIsLoaded(true);
-                    setItems(result);
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            )
-    }, [])
+  useEffect(() => {
+    fetch("https://covid19.th-stat.com/api/open/today")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
 
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-        return <div>Loading...</div>;
-    } else {
-        return (
-            <div>
-                <span>{JSON.stringify(items)}</span>
-            </div>
-        );
-    }
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>;
+  } else {
+    return (
+      <div className="site-card-wrapper">
+        <p style={{ color: "black",fontSize: "20px",textAlign: "Left" }}>ข้อมูล ณ วันที่ {items.UpdateDate}</p>
+        <Row gutter={24}>
+          <Col span={3}>
+            <Card title="ติดเชื้อสะสม" bordered={false} hoverable >
+              <h1 style={{ color: "#A81F00" }}>{items.Confirmed}</h1>
+              <h4 style={{ color: "#F53F16" }}>+ {items.NewConfirmed}</h4>
+            </Card>
+          </Col>
+          <Col span={3}>
+            <Card title="หายแล้ว" bordered={false} hoverable>
+              <h1 style={{ color: "#0FA809" }}>{items.Recovered}</h1>
+              <h4 style={{ color: "#24F51C" }}>+ {items.NewRecovered}</h4>
+            </Card>
+          </Col>
+          <Col span={3}>
+            <Card title="รักษาอยู่ใน รพ." bordered={false} hoverable>
+              <h1 style={{ color: "#0079A8" }}>{items.Hospitalized}</h1>
+              <h4 style={{ color: "#2BC3FF" }}>+ {items.NewHospitalized}</h4>
+            </Card>
+          </Col>
+          <Col span={3}>
+            <Card title="เสียชีวิต" bordered={false} hoverable>
+              <h1 style={{ color: "#4D88A8" }}>{items.Deaths}</h1>
+              <h4 style={{ color: "#2B79FF" }}>+ {items.NewDeaths}</h4>
+            </Card>
+          </Col>
+        </Row>
+      </div>
+    );
+  }
 }
 
 export default Getapi;

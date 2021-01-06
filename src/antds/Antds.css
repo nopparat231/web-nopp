@@ -1,3 +1,11 @@
 .Appant {
-    padding: 20px;
-  }
+  padding: 20px;
+}
+
+.site-card-wrapper {
+  background: #faf9f9;
+  padding: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: #faf9f9;
+}

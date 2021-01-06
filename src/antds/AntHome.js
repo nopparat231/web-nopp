@@ -1,9 +1,8 @@
 
-// import { Button, DatePicker, version } from "antd";
 import "antd/dist/antd.css";
 import "./Antds.css";
 import { Tabs } from 'antd';
-import MyComponent from "./apiget";
+import Getapi from "./apiget";
 
 const { TabPane } = Tabs;
 
@@ -17,7 +16,7 @@ function callback(key) {
         <div className="Appant">
         <Tabs onChange={callback} type="card">
         <TabPane tab="Covid-19 In Thai" key="1">
-          <MyComponent />
+          <Getapi />
         </TabPane>
         <TabPane tab="Covid-19 In World" key="2">
           Content of Tab Pane 2
