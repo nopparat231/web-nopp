@@ -46,7 +46,9 @@ function AirinThai() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://api.airvisual.com/v2/states?country=Thailand&key=462d60e8-ae3a-41cf-bbf2-2ae3041d6aa4")
+    fetch(
+      "http://api.airvisual.com/v2/states?country=Thailand&key=462d60e8-ae3a-41cf-bbf2-2ae3041d6aa4"
+    )
       .then((res) => res.json())
       .then(
         (result) => {
@@ -65,10 +67,17 @@ function AirinThai() {
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
+    let itemsToRender;
+    if (items.data) {
+      itemsToRender = items.data.map((da) => {
+        return <li>{da.state}</li>;
+      });
+    } else {
+      itemsToRender = "Loading...";
+    }
+
     return (
-      <ul>
-          {items.data.map((da) => <li>{da.state}</li>)}
-      </ul>
+      <div>{itemsToRender}</div>
       //   <Table columns={columns} dataSource={data} />
     );
   }
