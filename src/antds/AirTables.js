@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { Table } from "antd";
+
 
 function AirinThai() {
   //   const columns = [
@@ -47,7 +47,7 @@ function AirinThai() {
 
   useEffect(() => {
     fetch(
-      "https://api.airvisual.com/v2/states?country=Thailand&key=462d60e8-ae3a-41cf-bbf2-2ae3041d6aa4"
+      "https://api.airvisual.com/v2/city?city=samut-prakan&state=samut-prakan&country=Thailand&key=462d60e8-ae3a-41cf-bbf2-2ae3041d6aa4"
     )
       .then((res) => res.json())
       .then(
@@ -69,15 +69,16 @@ function AirinThai() {
   } else {
     let itemsToRender;
     if (items.data) {
-      itemsToRender = items.data.map((da) => {
-        return <li>{da.state}</li>;
-      });
+      itemsToRender = JSON.stringify(items.data.current.pollution.aqius);
+      
     } else {
       itemsToRender = "Loading...";
     }
 
     return (
-      <ul>{itemsToRender}</ul>
+      <h1>คุณภาพอากาศใน สมุทรปราการ  <span>{itemsToRender}</span><br></br></h1>
+      
+      // <ul>{JSON.stringify(items.data.current.pollution.aqius)}</ul>
       //   <Table columns={columns} dataSource={data} />
     );
   }
