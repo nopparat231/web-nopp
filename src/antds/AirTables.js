@@ -47,7 +47,7 @@ function AirinThai() {
 
   useEffect(() => {
     fetch(
-      "http://api.airvisual.com/v2/states?country=Thailand&key=462d60e8-ae3a-41cf-bbf2-2ae3041d6aa4"
+      "https://api.airvisual.com/v2/states?country=Thailand&key=462d60e8-ae3a-41cf-bbf2-2ae3041d6aa4"
     )
       .then((res) => res.json())
       .then(
@@ -77,7 +77,7 @@ function AirinThai() {
     }
 
     return (
-      <div>{itemsToRender}</div>
+      <ul>{itemsToRender}</ul>
       //   <Table columns={columns} dataSource={data} />
     );
   }
