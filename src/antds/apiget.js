@@ -9,7 +9,7 @@ function Getapi() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://covid19.th-stat.com/api/open/today")
+    fetch("https://covid19.ddc.moph.go.th/api/Cases/today-cases-all")
       .then((res) => res.json())
       .then(
         (result) => {
