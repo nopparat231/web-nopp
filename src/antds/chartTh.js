@@ -28,9 +28,9 @@ class Gchart extends React.Component {
 				startAngle: -90,
 				dataPoints: [
 					{ y: this.props.Confirmed, label: "ติดเชื้อสะสม" },
-					// { y: this.props.Recovered, label: "หายแล้ว" },
-					// { y: this.props.Hospitalized, label: "รักษาอยู่ใน รพ." },
-					// { y: this.props.Deaths, label: "เสียชีวิต" }
+					{ y: this.props.Recovered, label: "หายแล้ว" },
+					{ y: this.props.Hospitalized, label: "รักษาอยู่ใน รพ." },
+					{ y: this.props.Deaths, label: "เสียชีวิต" }
 				]
 			}]
 		}
