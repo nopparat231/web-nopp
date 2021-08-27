@@ -10,9 +10,9 @@ class Gchart extends React.Component {
                 [//colorSet Array
 
                 "#A81F00",
-                // "#0FA809",
-                // "#0079A8",
-                // "#4D88A8"                
+                "#0FA809",
+                "#0079A8",
+                "#4D88A8"                
                 ]);
 		const options = {
 			animationEnabled: true,

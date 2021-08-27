@@ -9,7 +9,7 @@ function Getapi() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://covid19.ddc.moph.go.th/api/Cases/today-cases-all")
+    fetch("https://static.easysunday.com/covid-19/getTodayCases.json")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -34,32 +34,32 @@ function Getapi() {
         <Row gutter={[16,16]}>
           <Col xs={24} sm={12} md={6}>
             <Card title="ติดเชื้อสะสม" bordered={true} hoverable >
-              <h1 style={{ color: "#A81F00" }}>{items.total_case}</h1>
-              <h4 style={{ color: "#F53F16" }}>+ {items.new_case}</h4>
+              <h1 style={{ color: "#A81F00" }}>{items.cases}</h1>
+              <h4 style={{ color: "#F53F16" }}>+ {items.todayCases}</h4>
             </Card>
           </Col>
-          {/* <Col xs={24} sm={12} md={6}>
+          <Col xs={24} sm={12} md={6}>
             <Card title="หายแล้ว" bordered={true} hoverable>
-              <h1 style={{ color: "#0FA809" }}>{items.total_case_excludeabroad}</h1>
-              <h4 style={{ color: "#24F51C" }}>+ {items.new_case_excludeabroad}</h4>
+              <h1 style={{ color: "#0FA809" }}>{items.recovered}</h1>
+              <h4 style={{ color: "#24F51C" }}>+ {items.todayRecovered}</h4>
             </Card>
-          </Col> */}
-          {/* <Col xs={24} sm={12} md={6}>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
             <Card title="รักษาอยู่ใน รพ." bordered={true} hoverable>
-              <h1 style={{ color: "#0079A8" }}>{items.total_case_excludeabroad}</h1>
-              <h4 style={{ color: "#2BC3FF" }}>+ {items.new_case_excludeabroad}</h4>
+              <h1 style={{ color: "#0079A8" }}>{items.active}</h1>
+              <h4 style={{ color: "#2BC3FF" }}>+ {items.critical}</h4>
             </Card>
-          </Col> */}
-          {/* <Col xs={24} sm={12} md={6}>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
             <Card title="เสียชีวิต" bordered={true} hoverable>
-              <h1 style={{ color: "#4D88A8" }}>{items.Deaths}</h1>
-              <h4 style={{ color: "#2B79FF" }}>+ {items.NewDeaths}</h4>
+              <h1 style={{ color: "#4D88A8" }}>{items.deaths}</h1>
+              <h4 style={{ color: "#2B79FF" }}>+ {items.todayDeaths}</h4>
             </Card>
-          </Col> */}
+          </Col>
           <Col xs={24} sm={24} md={24}>
             <Card bordered={true} hoverable>
-              {/* <Gchart Confirmed={items.total_case} Recovered={items.new_case} Hospitalized={items.Hospitalized} Deaths={items.Deaths} /> */}
-              <Gchart Confirmed={items.total_case} Recovered={items.new_case}  />
+              <Gchart Confirmed={items.cases} Recovered={items.recovered} Hospitalized={items.active} Deaths={items.deaths} />
+
             </Card>
           </Col>
         </Row>
