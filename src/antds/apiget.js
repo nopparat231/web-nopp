@@ -30,7 +30,7 @@ function Getapi() {
   } else {
     return (
       <div className="site-card-wrapper">
-        <p style={{ color: "black",fontSize: "20px",textAlign: "Left" }}>ข้อมูล ณ วันที่ {items.txn_date}</p>
+        <p style={{ color: "black",fontSize: "20px",textAlign: "Left" }}>ข้อมูล ณ วันที่ {items.UpdateDate}</p>
         <Row gutter={[16,16]}>
           <Col xs={24} sm={12} md={6}>
             <Card title="ติดเชื้อสะสม" bordered={true} hoverable >
