@@ -58,7 +58,7 @@ function Getapi() {
           </Col>
           <Col xs={24} sm={24} md={24}>
             <Card bordered={true} hoverable>
-              <Gchart Confirmed={items.todayCasess} Recovered={items.critical} Hospitalized={items.critical} Deaths={items.todayDeaths} />
+              <Gchart Confirmed={items.todayCases} Recovered={items.critical} Hospitalized={items.critical} Deaths={items.todayDeaths} />
 
             </Card>
           </Col>
