@@ -19,7 +19,7 @@ class Gchart extends React.Component {
 			exportEnabled: true,
 			theme: "light1", // "light1", "dark1", "dark2"
 			title:{
-				text: "สรุปทั้งหมด"
+				text: "สรุปทั้งหมดวันนี้"
             },
             colorSet: "greenShades",
 			data: [{
@@ -27,7 +27,7 @@ class Gchart extends React.Component {
 				indexLabel: "{label}: {y}",		
 				startAngle: -90,
 				dataPoints: [
-					{ y: this.props.Confirmed, label: "ติดเชื้อสะสม" },
+					{ y: this.props.Confirmed, label: "ติดเชื้อ" },
 					{ y: this.props.Recovered, label: "หายแล้ว" },
 					{ y: this.props.Hospitalized, label: "รักษาอยู่ใน รพ." },
 					{ y: this.props.Deaths, label: "เสียชีวิต" }
