@@ -35,7 +35,7 @@ function Getapi() {
           <Col xs={24} sm={12} md={6}>
             <Card title="ติดเชื้อสะสม" bordered={true} hoverable >
               <h1 style={{ color: "#A81F00" }}>{new Intl.NumberFormat('en-US', { maximumSignificantDigits: 3 }).format(items.cases)}</h1>
-              <h4 style={{ color: "#F53F16" }}>+ {new Intl.NumberFormat('en-US', { maximumSignificantDigits: 3 }).format(items.todayCasess)}</h4>
+              <h4 style={{ color: "#F53F16" }}>+ {new Intl.NumberFormat('en-US', { maximumSignificantDigits: 3 }).format(items.todayCases)}</h4>
             </Card>
           </Col>
           <Col xs={24} sm={12} md={6}>
