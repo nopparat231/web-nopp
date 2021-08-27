@@ -34,26 +34,26 @@ function Getapi() {
         <Row gutter={[16,16]}>
           <Col xs={24} sm={12} md={6}>
             <Card title="ติดเชื้อสะสม" bordered={true} hoverable >
-              <h1 style={{ color: "#A81F00" }}>{items.cases}</h1>
-              <h4 style={{ color: "#F53F16" }}>+ {items.todayCases}</h4>
+              <h1 style={{ color: "#A81F00" }}>{new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(items.cases)}</h1>
+              <h4 style={{ color: "#F53F16" }}>+ {new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(items.todayCasess)}</h4>
             </Card>
           </Col>
           <Col xs={24} sm={12} md={6}>
             <Card title="หายแล้ว" bordered={true} hoverable>
-              <h1 style={{ color: "#0FA809" }}>{items.recovered}</h1>
-              <h4 style={{ color: "#24F51C" }}>+ {items.todayRecovered}</h4>
+              <h1 style={{ color: "#0FA809" }}>{new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(items.recovered)}</h1>
+              <h4 style={{ color: "#24F51C" }}>+ {new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(items.todayRecovered)}</h4>
             </Card>
           </Col>
           <Col xs={24} sm={12} md={6}>
             <Card title="รักษาอยู่ใน รพ." bordered={true} hoverable>
-              <h1 style={{ color: "#0079A8" }}>{items.active}</h1>
-              <h4 style={{ color: "#2BC3FF" }}>+ {items.critical}</h4>
+              <h1 style={{ color: "#0079A8" }}>{new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(items.active)}</h1>
+              <h4 style={{ color: "#2BC3FF" }}>+ {new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(items.critical)}</h4>
             </Card>
           </Col>
           <Col xs={24} sm={12} md={6}>
             <Card title="เสียชีวิต" bordered={true} hoverable>
-              <h1 style={{ color: "#4D88A8" }}>{items.deaths}</h1>
-              <h4 style={{ color: "#2B79FF" }}>+ {items.todayDeaths}</h4>
+              <h1 style={{ color: "#4D88A8" }}>{new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(items.deaths)}</h1>
+              <h4 style={{ color: "#2B79FF" }}>+ {new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(items.todayDeaths)}</h4>
             </Card>
           </Col>
           <Col xs={24} sm={24} md={24}>
